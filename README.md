@@ -1,7 +1,7 @@
 # Arcade-Pass
 
 Detail : เป็นเกมส์ผ่านด่าน โดยจะมีด่านแต่ละด่านสุ่มมาให้ โดยให้เราเดินไปยังที่ที่กำหนด<br>
-<\t><\t><\t><\t><\t>- โดยพิมพ์คำสั่ง moveRight<br>
-<\t><\t><\t><\t><\t><\t><\t><\t>moveLeft<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp- โดยพิมพ์คำสั่ง moveRight<br>
+&nbsp&nbsp&nbsp&nbsp&nbspmoveLeft<br>
                                                                                   moveOn<br>
                                                                                   moveDown<br>
