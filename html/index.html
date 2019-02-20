@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script language="JavaScript1.2">
+    function disableselect(e){
+    return false
+    }
+
+    function reEnable(){
+    return true
+    }
+
+    //if IE4+
+    document.onselectstart=new Function ("return false")
+
+    //if NS6
+    if (window.sidebar){
+    document.onmousedown=disableselect
+    document.onclick=reEnable
+    }
+    </script>
+    <script language=JavaScript>
+    <!--
+    var message="Function Disabled!";
+    ///////////////////////////////////
+    function clickIE() {if (document.all) {alert(message);return false;}}
+    function clickNS(e) {if 
+    (document.layers||(document.getElementById&&!document.all)) {
+    if (e.which==2||e.which==3) {alert(message);return false;}}}
+    if (document.layers) 
+    {document.captureEvents(Event.MOUSEDOWN);document.onmousedown=clickNS;}
+    else{document.onmouseup=clickNS;document.oncontextmenu=clickIE;}
+
+    document.oncontextmenu=new Function("return false")
+    // --> 
+    </script>
+    <!--script<-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="stylenaja.css" rel="stylesheet" type="text/css" />
+    <title>Arcade GAME !!</title>
+    <link rel="icon" type="image/gif" href="logo.gif" />
+</head>
+<body>
+<!--ส่วนหน้าแรก-->
+    <center><img src="logo.gif"></img>
+    <div class="button button2"><a href="letsplay.html"><img src="start.png"></img></center></div>
+    <br>
+    <br>
+</body>
+</html>
