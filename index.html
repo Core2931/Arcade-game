@@ -1,53 +1,125 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+
 <head>
-    <script language="JavaScript1.2">
-    function disableselect(e){
-    return false
-    }
+    <meta charset="utf-8">
+    <title>Memory Game</title>
+    <meta name="description" content="Simple memory game">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    function reEnable(){
-    return true
-    }
 
-    //if IE4+
-    document.onselectstart=new Function ("return false")
-
-    //if NS6
-    if (window.sidebar){
-    document.onmousedown=disableselect
-    document.onclick=reEnable
-    }
-    </script>
-    <script language=JavaScript>
-    <!--
-    ///////////////////////////////////
-    function clickIE() {if (document.all) {alert(message);return false;}}
-    function clickNS(e) {if 
-    (document.layers||(document.getElementById&&!document.all)) {
-    if (e.which==2||e.which==3) {alert(message);return false;}}}
-    if (document.layers) 
-    {document.captureEvents(Event.MOUSEDOWN);document.onmousedown=clickNS;}
-    else{document.onmouseup=clickNS;document.oncontextmenu=clickIE;}
-
-    document.oncontextmenu=new Function("return false")
-    // --> 
-    </script>
-    <!--script<-->
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link rel="stylesheet" type="text/css" href="stylenaja.css">
-    <title>Arcade GAME !!</title>
-    <link rel="icon" type="image/gif" href="https://github.com/Core2931/Arcade-game/blob/master/image/logo.gif" />
+    <link rel="stylesheet" href="app.css">
 </head>
+
 <body>
-<!--ส่วนหน้าแรก-->
-    <center><img src="https://github.com/Core2931/Arcade-game/blob/master/image/logo.gif?raw=true"></img>
-	<br>
-	<br>
-	<br>
-	<br>
-    <div class="button button2"><a href="letsplay.html"><img src="https://github.com/Core2931/Arcade-game/blob/master/image/start.png?raw=true"></img></center></div>
-    <br>
-    <br>
+    <div class="container">
+        <header>
+            <h1 class="game-heading">Memory Game</h1>
+        </header>
+        <div class="score-panel">
+            <div id="score">
+                <ul class="stars">
+                    <li class="star">
+                        <i class="fas fa-star"></i>
+                    </li>
+                    <li class="star">
+                        <i class="fas fa-star"></i>
+                    </li>
+                    <li class="star">
+                        <i class="fas fa-star"></i>
+                    </li>
+                </ul>
+                <div class="moves">
+                    <span class="moves-count">0</span>
+                    <span class="moves-text"> Moves</span>
+                </div>
+            </div>
+            <div id="timer">
+                <span class="hours">00</span> :
+                <span class="minutes">00</span> :
+                <span class="seconds">00</span>
+            </div>
+            <div id="restart">
+                <i class="fas fa-sync-alt"></i>
+            </div>
+        </div>
+        <ul class="deck">
+            <li class="card">
+                <i class="fab"></i>
+            </li>
+            <li class="card">
+                <i class="fab"></i>
+            </li>
+            <li class="card">
+                <i class="fab"></i>
+            </li>
+            <li class="card">
+                <i class="fab"></i>
+            </li>
+            <li class="card">
+                <i class="fab"></i>
+            </li>
+            <li class="card">
+                <i class="fab"></i>
+            </li>
+            <li class="card">
+                <i class="fab"></i>
+            </li>
+            <li class="card">
+                <i class="fab"></i>
+            </li>
+            <li class="card">
+                <i class="fab"></i>
+            </li>
+            <li class="card">
+                <i class="fab"></i>
+            </li>
+            <li class="card">
+                <i class="fab"></i>
+            </li>
+            <li class="card">
+                <i class="fab"></i>
+            </li>
+            <li class="card">
+                <i class="fab"></i>
+            </li>
+            <li class="card">
+                <i class="fab"></i>
+            </li>
+            <li class="card">
+                <i class="fab"></i>
+            </li>
+            <li class="card">
+                <i class="fab"></i>
+            </li>
+        </ul>
+    </div>
+    <div id="simpleModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-close-btn">&times;</span>
+                <h2>Congratulations!</h2>
+            </div>
+            <div class="modal-body">
+                <h3>You completed the game successfully!</h3>
+                <p>It took you
+                    <span class="hours"></span>
+                    <span class="mins"></span>
+                    <span class="seconds"></span> &
+                    <span class="moves-count"></span> to finish the game.
+                    <br> Your rating is
+                    <span class="rating"></span> out of 3.
+                </p>
+            </div>
+            <div class="replay">
+                <button type="button" class="modal-replay-btn">
+                    Replay!
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
 </body>
+
 </html>

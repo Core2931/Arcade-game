@@ -1,0 +1,627 @@
+html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Coda', cursive;
+    color: #fff;
+    background: -webkit-linear-gradient(135deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+    background: -o-linear-gradient(135deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+    background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+    background-size: 400% 400%;
+    -webkit-animation: Gradient 50s ease infinite;
+    -moz-animation: Gradient 50s ease infinite;
+    -o-animation: Gradient 50s ease infinite;
+    animation: Gradient 50s ease infinite;
+}
+
+.container {
+    width: 50%;
+    height: 100%;
+    max-width: 670px;
+    margin: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.game-heading {
+    font-weight: 500;
+}
+
+/*
+ * Styles for the deck of cards
+ */
+
+.deck {
+    width: 85%;
+    height: 100%;
+    min-height: 400px;
+    background: -webkit-linear-gradient(290deg, #02ccba 0%, #aa7ecd 100%);
+    background: -o-linear-gradient(290deg, #02ccba 0%, #aa7ecd 100%);
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    padding: 20px;
+    border-radius: 10px;
+    -webkit-box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: space-evenly;
+    -ms-flex-pack: space-evenly;
+    justify-content: space-evenly;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: 0 0 1em;
+}
+
+.card {
+    height: 110px;
+    width: 110px;
+    margin: 5px;
+    background: #2e3d49;
+    font-size: 0;
+    color: #ffffff;
+    border-radius: 8px;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+            box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+
+    -webkit-transition:
+    font-size 0.3s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+    background 0.5s,
+    -webkit-transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    -moz-transition:
+    font-size 0.3s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+    background 0.5s,
+    -moz-transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    -o-transition:
+    font-size 0.3s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+    transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    background 0.5s;
+
+    transition:
+    font-size 0.3s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+    transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    background 0.5s,
+    -webkit-transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card.open .fab {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.card.open {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    background: #02b3e4;
+    cursor: default;
+}
+
+.card.show {
+    font-size: 3em;
+}
+
+.card.match {
+    cursor: default;
+    background: #02ccba;
+    font-size: 3em;
+}
+
+.card.bounceIn {
+    -webkit-animation-name: BounceIn;
+    -moz-animation-name: BounceIn;
+    -o-animation-name: BounceIn;
+    animation-name: BounceIn;
+    -webkit-animation-duration: .75s;
+    -moz-animation-duration: .75s;
+    -o-animation-duration: .75s;
+    animation-duration: .75s;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    -o-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.card.bounceIn .fab {
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+}
+
+/*
+ * Styles for the Score Panel
+ */
+.score-panel {
+    text-align: left;
+    width: 85%;
+    padding: 0 35px;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+#score {
+    display: inherit;
+    text-align: center;
+}
+
+.stars {
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+}
+
+.star {
+    list-style-type: none;
+    display: inline-block;
+    color: #ffcd00;
+}
+
+.empty-star {
+    color: transparent;
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: #ffcd00;
+}
+
+.moves {
+    display: inline-block;
+}
+
+#timer {
+    text-align: center;
+}
+
+#restart {
+    text-align: center;
+    cursor: pointer;
+}
+
+#restart i {
+    padding-left: 5px;
+}
+
+/*
+ * Styles for the modal
+ */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index:1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    width: 60%;
+    margin: 20% auto;
+    border-radius: 8px;
+    background-color:#f4f4f4;
+    -webkit-box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.17);
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.17);
+    -webkit-animation-name: ModalOpen;
+    -moz-animation-name: ModalOpen;
+    -o-animation-name: ModalOpen;
+    animation-name: ModalOpen;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    -o-animation-duration: 1s;
+    animation-duration: 1s;
+}
+
+.modal-header {
+    background: -webkit-linear-gradient(290deg, #02ccba 0%, #aa7ecd 100%);
+    background: -o-linear-gradient(290deg, #02ccba 0%, #aa7ecd 100%);
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    padding:15px;
+    color:#fff;
+}
+
+.modal-header h2 {
+    text-align: center;
+    margin:0;
+}
+
+.modal-close-btn {
+    float: right;
+    font-size: 1.5em;
+    color:#fff;
+}
+
+.modal-close-btn:hover, .modal-close-btn:focus {
+    color:#000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-body {
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.replay {
+    padding: 1em;
+}
+
+.modal-replay-btn {
+    display: block;
+    background-color: #8c4ed6;
+    color: white;
+    font-size: 16px;
+    font-weight: normal;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    margin: auto;
+    -webkit-box-shadow: 7px 7px 30px #999999;
+    box-shadow: 7px 7px 30px #999999;
+    -webkit-transition: -webkit-box-shadow 0.5s;
+    -moz-transition: -webkit-box-shadow 0.5s;
+    -o-transition: -webkit-box-shadow 0.5s;
+    transition: -webkit-box-shadow 0.5s;
+    -o-transition: box-shadow 0.5s;
+    transition: box-shadow 0.5s, -webkit-box-shadow 0.5s;
+}
+
+.modal-replay-btn:hover, .modal-replay-btn:focus {
+    -webkit-box-shadow: 3px 3px 8px #6F6F6F;
+    box-shadow: 3px 3px 8px #6F6F6F;
+    background-color: #9759E3;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1230px) {
+    .container {
+        width: 60%;
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .container {
+        width: 90%;
+        height: initial;
+    }
+
+    .card {
+        width: 140px;
+        height: 140px;
+    }
+}
+
+@media screen and (max-width: 840px) {
+    .card {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media screen and (max-width: 735px) {
+    .container {
+        width: 100%;
+    }
+
+    .deck {
+        width: 90%;
+    }
+
+    .card {
+        width: 110px;
+        height: 110px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .deck {
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .game-heading {
+        margin-bottom: 0;
+    }
+
+    .card {
+        width: 90px;
+        height: 90px;
+    }
+
+    .score-panel {
+        display: block;
+    }
+
+    #score {
+        margin: 10px auto;
+    }
+
+    #timer {
+        margin: 10px auto;
+    }
+
+    #restart {
+        margin: 10px auto;
+    }
+
+    .card.show {
+        font-size: 2em;
+    }
+}
+
+@media screen and (max-width: 465px) {
+    .card {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .card {
+        width: 55px;
+        height: 55px;
+    }
+}
+
+/*
+ * Backgroudn color animations
+ */
+
+@-webkit-keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@-moz-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@-o-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@-webkit-keyframes BounceIn {
+    0%, 20%, 40%, 60%, 80%, 100% {
+        -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+    0% {
+        opacity: 0;
+        -webkit-transform: scale3d(.3, .3, .3);
+    }
+    20% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+    }
+    40% {
+        -webkit-transform: scale3d(.9, .9, .9);
+    }
+    60% {
+        opacity: 1;
+        -webkit-transform: scale3d(1.03, 1.03, 1.03);
+    }
+    80% {
+        -webkit-transform: scale3d(.97, .97, .97);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale3d(1, 1, 1);
+    }
+}
+
+@-moz-keyframes BounceIn {
+    0%, 20%, 40%, 60%, 80%, 100% {
+        -moz-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+    0% {
+        opacity: 0;
+        -moz-transform: scale3d(.3, .3, .3);
+    }
+    20% {
+        -moz-transform: scale3d(1.1, 1.1, 1.1);
+    }
+    40% {
+        -moz-transform: scale3d(.9, .9, .9);
+    }
+    60% {
+        opacity: 1;
+        -moz-transform: scale3d(1.03, 1.03, 1.03);
+    }
+    80% {
+        -moz-transform: scale3d(.97, .97, .97);
+    }
+    100% {
+        opacity: 1;
+        -moz-transform: scale3d(1, 1, 1);
+    }
+}
+
+@-o-keyframes BounceIn {
+    0%, 20%, 40%, 60%, 80%, 100% {
+        -o-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+    0% {
+        opacity: 0;
+        -o-transform: scale3d(.3, .3, .3);
+    }
+    20% {
+        -o-transform: scale3d(1.1, 1.1, 1.1);
+    }
+    40% {
+        -o-transform: scale3d(.9, .9, .9);
+    }
+    60% {
+        opacity: 1;
+        -o-transform: scale3d(1.03, 1.03, 1.03);
+    }
+    80% {
+        -o-transform: scale3d(.97, .97, .97);
+    }
+    100% {
+        opacity: 1;
+        -o-transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes BounceIn {
+    0%, 20%, 40%, 60%, 80%, 100% {
+        -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        -o-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+    0% {
+        opacity: 0;
+        -webkit-transform: scale3d(.3, .3, .3);
+        transform: scale3d(.3, .3, .3);
+    }
+    20% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    40% {
+        -webkit-transform: scale3d(.9, .9, .9);
+        transform: scale3d(.9, .9, .9);
+    }
+    60% {
+        opacity: 1;
+        -webkit-transform: scale3d(1.03, 1.03, 1.03);
+        transform: scale3d(1.03, 1.03, 1.03);
+    }
+    80% {
+        -webkit-transform: scale3d(.97, .97, .97);
+        transform: scale3d(.97, .97, .97);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@-webkit-keyframes ModalOpen {
+    from{
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@-moz-keyframes ModalOpen {
+    from{
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@-o-keyframes ModalOpen {
+    from{
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes ModalOpen {
+    from{
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
