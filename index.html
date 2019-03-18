@@ -1,50 +1,98 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <script language="JavaScript1.2">
-    function disableselect(e){
-    return false
-    }
-
-    function reEnable(){
-    return true
-    }
-
-    //if IE4+
-    document.onselectstart=new Function ("return false")
-
-    //if NS6
-    if (window.sidebar){
-    document.onmousedown=disableselect
-    document.onclick=reEnable
-    }
-    </script>
-    <script language=JavaScript>
-    <!--
-    var message="Function Disabled!";
-    ///////////////////////////////////
-    function clickIE() {if (document.all) {alert(message);return false;}}
-    function clickNS(e) {if 
-    (document.layers||(document.getElementById&&!document.all)) {
-    if (e.which==2||e.which==3) {alert(message);return false;}}}
-    if (document.layers) 
-    {document.captureEvents(Event.MOUSEDOWN);document.onmousedown=clickNS;}
-    else{document.onmouseup=clickNS;document.oncontextmenu=clickIE;}
-
-    document.oncontextmenu=new Function("return false")
-    // --> 
-    </script>
-    <!--script<-->
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link rel="stylesheet" type="text/css" href="css/stylenaja.css">
-    <title>Arcade GAME !!</title>
-    <link rel="icon" type="image/gif" href="https://github.com/Core2931/Arcade-game/blob/master/image/logo.gif" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+    <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
+     <link rel="stylesheet" type="text/css" href="letplay.css">
+    <title>Find Social Symbols and Match it !!</title>
 </head>
 <body>
-<!--ส่วนหน้าแรก-->
-    <center><img src="https://github.com/Core2931/Arcade-game/blob/master/image/logo.gif?raw=true"></img>
-    <div class="button button2"><a href="letsplay.html"><img src="https://github.com/Core2931/Arcade-game/blob/master/image/start.png?raw=true"></img></center></div>
-    <br>
-    <br>
+<!--ส่วนหน้าแรก-->  
+    </div><!-- End Wrap -->
+        <header>
+        <center><img src="image\logo.png" alt="logo find and match" width="65%" height="100%"></center>
+        </header>
+                <center><div class="moves">
+                    <span class="moves-count">0</span>
+                    <span class="moves-count">:</span>
+                    <span class="moves-text">Move</span>
+                </div>
+            </div>
+            <div id="timer">
+                <img src="clock1.gif" width="50px" height="40px">
+                <span class="hours">00</span>
+                <span class="moves-count">:</span>
+                <span class="minutes">00</span>
+                <span class="moves-count">:</span>
+                <span class="seconds">00</span>
+            </div>
+                <div id="restart">
+                <span class="re">Shuffle & Restart </span>
+            </div>
+                        </center>
+        </div>
+        <center><ul class="deck">
+            <li class="card">
+                <i class="fab"></i>
+            </li>
+            <li class="card">
+                <i class="fab"></i>
+            </li>
+            <li class="card">
+                <i class="fab"></i>
+            </li>
+            <li class="card">
+                <i class="fab"></i>
+            </li>
+            <li class="card">
+                <i class="fab"></i>
+            </li>
+            <li class="card">
+                <i class="fab"></i>
+            </li>
+            <li class="card">
+                <i class="fab"></i>
+            </li>
+            <li class="card">
+                <i class="fab"></i>
+            </li>
+            <li class="card">
+                <i class="fab"></i>
+            </li>
+            <li class="card">
+                <i class="fab"></i>
+            </li>
+            <li class="card">
+                <i class="fab"></i>
+            </li>
+            <li class="card">
+                <i class="fab"></i>
+            </li>
+        </ul></center>
+    <div id="simpleModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-close-btn">&times;</span>
+                <span class="moves-text"><center>Congratulations!</span></center>
+            </div>
+            <div class="modal-body">
+                    <span class="moves-text">You finished in </span>
+                    <span class="hours"></span>
+                    <span class="mins"></span>
+                    <span class="seconds"></span><br>
+                    <span class="moves-text">and use </span>
+                    <span class="moves-count"></span>
+            </div>
+            <div class="replay">
+                <button type="button" class="modal-replay-btn">
+                    Restart!
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="javascript/jsgame.js"></script>
 </body>
 </html>
